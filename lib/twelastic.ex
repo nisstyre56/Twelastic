@@ -1,4 +1,4 @@
-defmodule twelastic do
+defmodule Twelastic do
   @moduledoc """
   Get tweets of certain stuff
   """
@@ -73,11 +73,11 @@ defmodule IndexR do
   end
 
   def indexTweets do
-    twelastic.tweets |>
+    Twelastic.tweets |>
     Stream.map(&IndexR.indexTweet/1) |>
     Stream.map(&IO.inspect/1) |>
     Enum.to_list
   end
 end
 
-twelastic.main
+Twelastic.main

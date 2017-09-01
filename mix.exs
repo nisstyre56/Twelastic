@@ -1,4 +1,4 @@
-defmodule twelastic.Mixfile do
+defmodule Twelastic.Mixfile do
   use Mix.Project
 
   def project do
