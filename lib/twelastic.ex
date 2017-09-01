@@ -8,7 +8,7 @@ defmodule Twelastic do
   """
 
   def tweets do
-    ExTwitter.stream_filter(track: "foobar") |>
+    ExTwitter.stream_filter(track: "Houston") |>
     Stream.filter(fn(tweet) ->
       tweet.retweeted_status == nil
     end) |>
@@ -37,9 +37,16 @@ defmodule Twelastic do
     end)
   end
 
+  def printTweets do
+    Twelastic.tweets |>
+    Stream.map(&IO.inspect/1) |>
+    Enum.to_list
+  end
+
   def main do
-    Elastix.start()
-    IndexR.indexTweets
+    #Elastix.start()
+    #IndexR.indexTweets
+    Twelastic.printTweets
   end
 end
 
@@ -80,4 +87,4 @@ defmodule IndexR do
   end
 end
 
-Twelastic.main
+Twelastic.printTweets
