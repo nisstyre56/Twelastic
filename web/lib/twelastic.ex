@@ -87,4 +87,4 @@ defmodule IndexR do
   end
 end
 
-Twelastic.printTweets
+#Twelastic.printTweets
