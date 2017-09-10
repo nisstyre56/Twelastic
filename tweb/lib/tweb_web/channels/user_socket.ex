@@ -2,7 +2,7 @@ defmodule TwebWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", TwebWeb.RoomChannel
+  channel "tweets:*", TwebWeb.TweetChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

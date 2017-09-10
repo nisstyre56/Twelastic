@@ -20,7 +20,7 @@ defmodule Tweb.Mixfile do
   def application do
     [
       mod: {Tweb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :extwitter, :elastix, :oauther, :poison]
     ]
   end
 
@@ -40,7 +40,11 @@ defmodule Tweb.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:extwitter, "~> 0.8.6"},
+      {:elastix, "~> 0.4.0"},
+      {:distillery, "~> 1.4", runtime: false},
+      {:oauther, "~> 1.1"}
     ]
   end
 

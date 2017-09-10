@@ -1,4 +1,4 @@
-defmodule Twelastic do
+defmodule TwebWeb.Twelastic do
   @moduledoc """
   Get tweets of certain stuff
   """
@@ -8,7 +8,7 @@ defmodule Twelastic do
   """
 
   def tweets do
-    ExTwitter.stream_filter(track: "Houston") |>
+    ExTwitter.stream_filter(track: "Irma") |>
     Stream.filter(fn(tweet) ->
       tweet.retweeted_status == nil
     end) |>
@@ -38,7 +38,7 @@ defmodule Twelastic do
   end
 
   def printTweets do
-    Twelastic.tweets |>
+    TwebWeb.Twelastic.tweets |>
     Stream.map(&IO.inspect/1) |>
     Enum.to_list
   end
@@ -46,11 +46,11 @@ defmodule Twelastic do
   def main do
     #Elastix.start()
     #IndexR.indexTweets
-    Twelastic.printTweets
+    TwebWeb.Twelastic.printTweets
   end
 end
 
-defmodule IndexR do
+defmodule TwebWeb.IndexR do
   @index_name "twelastic"
 
   @elastic_url "http://localhost:9200"
@@ -80,7 +80,7 @@ defmodule IndexR do
   end
 
   def indexTweets do
-    Twelastic.tweets |>
+    TwebWeb.Twelastic.tweets |>
     Stream.map(&IndexR.indexTweet/1) |>
     Stream.map(&IO.inspect/1) |>
     Enum.to_list

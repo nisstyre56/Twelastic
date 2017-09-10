@@ -54,9 +54,16 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("tweets:messages", {})
 channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("ok", resp => {
+    channel.push("get_tweets", {}, 0)
+    console.log("Joined successfully", resp)
+  })
   .receive("error", resp => { console.log("Unable to join", resp) })
+
+const ref1 = channel.on("tweets", tweet => {
+  console.log(tweet.tweet.text)
+})
 
 export default socket
