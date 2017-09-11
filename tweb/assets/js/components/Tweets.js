@@ -9,10 +9,19 @@ function renderTweet(tweet) {
          className="tile animated fadeIn"
     >
       <div className="tile-content">
-        <h4 className="tile-subtitle tweet">
-          {tweet.tweet.text}
-        </h4>
-        { urls.length > 0 ? <a target="_blank" href={urls[0]}>{ urls[0] }</a> : "" }
+        <h3> @{ tweet.tweet.author } </h3>
+        { urls.length > 0 ?
+            (
+              <a target="_blank" href={urls[0]}>
+                <h4 className="tile-subtitle tweet">
+                  {tweet.tweet.text}
+                </h4>
+              </a>)
+          : (
+              <h4 className="tile-subtitle tweet">
+                {tweet.tweet.text}
+              </h4>
+          )  }
         <span className="divider"></span>
       </div>
     </div>
