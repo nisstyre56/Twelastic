@@ -7,11 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Tweb!</title>
+    <title>Live Tweets</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
+    <h2>Live Tweets of Hurrican Irma</h2>
     <div id="root"></div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
