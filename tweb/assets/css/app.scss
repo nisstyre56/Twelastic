@@ -1,0 +1,14 @@
+/* This file is for your main application css. */
+
+$fa-font-path: "../fonts";
+@import "font-awesome";
+@import "spectre";
+
+.tweets {
+  max-width: 80%;
+}
+
+.tweet {
+	font-family: 'Open Sans',sans-serif !important;
+	line-height: 1.6em !important;
+}

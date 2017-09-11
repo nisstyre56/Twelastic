@@ -20,6 +20,9 @@ exports.config = {
       // }
     },
     stylesheets: {
+      order: {
+        after: ["css/app.scss"]
+      },
       joinTo: "css/app.css"
     },
     templates: {
@@ -44,6 +47,15 @@ exports.config = {
 
   // Configure your plugins
   plugins: {
+    copycat: {
+      "fonts": ["node_modules/font-awesome/fonts"] // copy node_modules/font-awesome/fonts/* to priv/static/fonts/
+    },
+    sass: {
+      options: {
+        includePaths: ["node_modules/spectre.css/src", "node_modules/font-awesome/scss"], // tell sass-brunch where to look for files to @import
+        precision: 8 // minimum precision required by bootstrap
+      }
+    },
     babel: {
       // Do not use ES6 compiler in vendor code
       presets: ["es2015", "react"],
