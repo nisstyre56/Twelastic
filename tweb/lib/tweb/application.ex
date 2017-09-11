@@ -1,5 +1,6 @@
 defmodule Tweb.Application do
   use Application
+  use Task, restart: :permanent
 
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications

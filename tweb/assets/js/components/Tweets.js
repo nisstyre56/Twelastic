@@ -1,27 +1,22 @@
 import React from 'react'
 import R from 'ramda'
-import getUrls from 'get-urls'
+import linkifyUrls from 'linkifyjs/string'
+
+function createMarkup(tweet) {
+  return {__html: tweet};
+};
 
 function renderTweet(tweet) {
-  let urls = Array.from(getUrls(tweet.tweet.text))
+  let text = linkifyUrls(tweet.tweet.text, {})
   return (
     <div key={tweet.tweet.text}
          className="tile animated fadeIn"
     >
       <div className="tile-content">
         <h3> @{ tweet.tweet.author } </h3>
-        { urls.length > 0 ?
-            (
-              <a target="_blank" href={urls[0]}>
-                <h4 className="tile-subtitle tweet">
-                  {tweet.tweet.text}
-                </h4>
-              </a>)
-          : (
-              <h4 className="tile-subtitle tweet">
-                {tweet.tweet.text}
-              </h4>
-          )  }
+          <h4 className="tile-subtitle tweet">
+            <div dangerouslySetInnerHTML={ createMarkup(text) }></div>
+          </h4>
         <span className="divider"></span>
       </div>
     </div>
