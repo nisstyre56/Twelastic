@@ -1,7 +1,9 @@
 import React from 'react'
 import R from 'ramda'
+import getUrls from 'get-urls'
 
 function renderTweet(tweet) {
+  let urls = Array.from(getUrls(tweet.tweet.text))
   return (
     <div key={tweet.tweet.text}
          className="tile animated fadeIn"
@@ -10,6 +12,7 @@ function renderTweet(tweet) {
         <h4 className="tile-subtitle tweet">
           {tweet.tweet.text}
         </h4>
+        { urls.length > 0 ? <a target="_blank" href={urls[0]}>{ urls[0] }</a> : "" }
         <span className="divider"></span>
       </div>
     </div>
@@ -51,14 +54,22 @@ class Tweets extends React.Component {
 
   render() {
     return (
-      <div className="tweets">
-        { renderTweets(this.state.tweets) }
-        <button
-          onClick={this.pause}
-          className="btn btn-primary"
-        >
-          { this.state.paused ? "Start" : "Pause" }
-        </button>
+      <div className="container tweets">
+        <div className="columns">
+          <div className="column col-10">
+            <div style={{"float" : "left"}}>
+              { renderTweets(this.state.tweets) }
+            </div>
+          </div>
+          <div className="column col-2">
+            <button
+              onClick={this.pause}
+              className="btn btn-primary"
+            >
+              { this.state.paused ? "Start" : "Pause" }
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

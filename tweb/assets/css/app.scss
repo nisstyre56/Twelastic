@@ -4,8 +4,12 @@ $fa-font-path: "../fonts";
 @import "font-awesome";
 @import "spectre";
 
+.title {
+  text-align: center;
+}
+
 .tweets {
-  max-width: 80%;
+  max-width: 95%;
 }
 
 .tweet {

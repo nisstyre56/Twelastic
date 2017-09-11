@@ -13,6 +13,7 @@
     "babel-preset-react": "^6.24.1",
     "copycat-brunch": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "get-urls": "^7.0.0",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "ramda": "^0.24.1",
