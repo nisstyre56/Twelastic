@@ -5,7 +5,7 @@ $fa-font-path: "../fonts";
 @import "spectre";
 
 .title {
-  text-align: center;
+  text-align: center !important;
 }
 
 .tweets {
