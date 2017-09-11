@@ -22,7 +22,7 @@ defmodule Tweb.Application do
     Supervisor.start_link(children, opts)
 
     # start broadcasting tweets to the tweets:messages topic
-    TwebWeb.Twelastic.broadcast_tweets
+    Task.start(TwebWeb.Twelastic.broadcast_tweets)
   end
 
   # Tell Phoenix to update the endpoint configuration
