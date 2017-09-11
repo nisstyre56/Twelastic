@@ -62,8 +62,6 @@ channel.join()
   })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-const ref1 = channel.on("tweets", tweet => {
-  console.log(tweet.tweet.text)
-})
+const ref1 = channel.on("tweets", tweet => { return; })
 
 export default socket

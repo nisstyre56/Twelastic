@@ -6,6 +6,16 @@ defmodule TwebWeb.Twelastic do
   @doc """
     Twitter indexer for racist people
   """
+  def send_tweet(tweet) do
+    payload = %{"tweet" => tweet}
+    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", payload)
+  end
+
+  def broadcast_tweets() do
+    TwebWeb.Twelastic.tweets |>
+    Stream.map(&send_tweet/1) |>
+    Enum.to_list
+  end
 
   def tweets do
     ExTwitter.stream_filter(track: "Irma") |>
