@@ -24,6 +24,9 @@ class Tweets extends React.Component {
   constructor(props) {
     super(props);
     const ref1 = props.channel.on("tweets", tweet => {
+      if (this.state.paused) {
+        return;
+      }
       this.setState(
         {
           "tweets" : R.prepend(tweet,
@@ -34,8 +37,15 @@ class Tweets extends React.Component {
       )
     })
 
+    this.pause = () => {
+      this.setState({
+        "paused" : !this.state.paused
+      });
+    }
+
     this.state = {
-      "tweets" : []
+      "tweets" : [],
+      "paused" : false
     }
   }
 
@@ -43,6 +53,12 @@ class Tweets extends React.Component {
     return (
       <div className="tweets">
         { renderTweets(this.state.tweets) }
+        <button
+          onClick={this.pause}
+          className="btn btn-primary"
+        >
+          { this.state.paused ? "Start" : "Pause" }
+        </button>
       </div>
     );
   }
