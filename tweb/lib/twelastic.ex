@@ -8,7 +8,7 @@ defmodule TwebWeb.Twelastic do
   """
   def send_tweet(tweet) do
     payload = %{"tweet" => tweet}
-    Process.sleep(2000)
+    Process.sleep(1200)
     TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", payload)
   end
 
