@@ -20,6 +20,8 @@ defmodule Tweb.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Tweb.Supervisor]
     Supervisor.start_link(children, opts)
+
+    # start broadcasting tweets to the tweets:messages topic
     TwebWeb.Twelastic.broadcast_tweets
   end
 
