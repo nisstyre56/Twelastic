@@ -4,7 +4,7 @@ defmodule TwebWeb.Twelastic do
   """
 
   @doc """
-    Twitter indexer for racist people
+    Twitter indexer
   """
   def send_tweet(tweet) do
     payload = %{"tweet" => tweet}
