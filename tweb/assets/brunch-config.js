@@ -21,7 +21,7 @@ exports.config = {
     },
     stylesheets: {
       order: {
-        after: ["css/app.scss"]
+        after: ["css/app.scss", "css/animate.min.css"]
       },
       joinTo: "css/app.css"
     },

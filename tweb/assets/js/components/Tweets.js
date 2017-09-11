@@ -4,7 +4,7 @@ import R from 'ramda'
 function renderTweet(tweet) {
   return (
     <div key={tweet.tweet.text}
-         className="tile"
+         className="tile animated fadeIn"
     >
       <div className="tile-content">
         <h4 className="tile-subtitle tweet">
