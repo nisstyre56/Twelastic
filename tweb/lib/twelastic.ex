@@ -15,8 +15,7 @@ defmodule TwebWeb.Twelastic do
 
   def broadcast_tweets() do
     TwebWeb.Twelastic.tweets |>
-    Stream.map(&send_tweet/1) |>
-    Enum.to_list
+    Enum.map(&send_tweet/1)
   end
 
   def tweets do
