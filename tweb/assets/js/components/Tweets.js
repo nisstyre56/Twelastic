@@ -10,7 +10,7 @@ function renderTweet(tweet) {
   let text = linkifyUrls(tweet.tweet.text, {})
   return (
     <div key={tweet.tweet.text}
-         className="tile animated fadeIn"
+         className="tile animated fadeInDown"
     >
       <div className="tile-content">
         <h3> @{ tweet.tweet.author } </h3>
