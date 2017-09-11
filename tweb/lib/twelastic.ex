@@ -10,12 +10,12 @@ defmodule TwebWeb.Twelastic do
     payload = %{"tweet" => tweet}
     Process.sleep(2000)
     TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", payload)
-    :erlang.garbage_collect
   end
 
   def broadcast_tweets() do
     TwebWeb.Twelastic.tweets |>
-    Enum.each(&send_tweet/1)
+    Stream.each(&send_tweet/1) |>
+    Stream.run
   end
 
   def tweets do
