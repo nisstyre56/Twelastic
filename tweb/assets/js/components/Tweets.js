@@ -33,7 +33,7 @@ class Tweets extends React.Component {
       this.setState(
         {
           "tweets" : R.prepend(tweet,
-                               (this.state.tweets.length > 12 ?
+                               (this.state.tweets.length > 10 ?
                                   R.dropLast(1, this.state.tweets) :
                                   this.state.tweets))
         }
