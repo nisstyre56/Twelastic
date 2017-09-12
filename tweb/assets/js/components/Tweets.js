@@ -31,6 +31,7 @@ function renderTweets(tweets) {
 class Tweets extends React.Component {
   constructor(props) {
     super(props);
+    console.log(lodash.throttle);
     const ref1 = props.channel.on("tweets", lodash.throttle(tweet => {
       if (this.state.paused) {
         return;
@@ -43,7 +44,7 @@ class Tweets extends React.Component {
                                   this.state.tweets))
         }
       )
-    }, 1500))
+    }, 2500))
 
     this.pause = () => {
       this.setState({
