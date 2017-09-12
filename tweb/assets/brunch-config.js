@@ -71,6 +71,6 @@ exports.config = {
 
   npm: {
     enabled: true,
-    whitelist: ["phoenix", "phoenix_html", "react", "react-dom", "ramda", "linkifyjs"]
+    whitelist: ["phoenix", "phoenix_html", "react", "react-dom", "ramda", "linkifyjs", "lodash"]
   }
 };

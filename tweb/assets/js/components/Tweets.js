@@ -1,6 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 import linkifyUrls from 'linkifyjs/string'
+import lodash from 'lodash'
 
 function createMarkup(tweet) {
   return {__html: tweet};
@@ -30,7 +31,7 @@ function renderTweets(tweets) {
 class Tweets extends React.Component {
   constructor(props) {
     super(props);
-    const ref1 = props.channel.on("tweets", tweet => {
+    const ref1 = props.channel.on("tweets", lodash.throttle(tweet => {
       if (this.state.paused) {
         return;
       }
@@ -42,7 +43,7 @@ class Tweets extends React.Component {
                                   this.state.tweets))
         }
       )
-    })
+    }, 1500))
 
     this.pause = () => {
       this.setState({
