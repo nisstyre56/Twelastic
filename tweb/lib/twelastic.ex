@@ -7,9 +7,10 @@ defmodule TwebWeb.Twelastic do
     Twitter indexer
   """
   def send_tweet(tweet) do
+    payload = %{"tweet" => tweet}
     :erlang.garbage_collect()
     Process.sleep(2000)
-    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", %{"tweet" => tweet})
+    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", payload)
   end
 
   def broadcast_tweets() do
@@ -46,6 +47,18 @@ defmodule TwebWeb.Twelastic do
       }
 
     end)
+  end
+
+  def printTweets do
+    TwebWeb.Twelastic.tweets |>
+    Stream.map(&IO.inspect/1) |>
+    Enum.to_list
+  end
+
+  def main do
+    #Elastix.start()
+    #IndexR.indexTweets
+    TwebWeb.Twelastic.printTweets
   end
 end
 
