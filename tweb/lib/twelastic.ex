@@ -48,18 +48,6 @@ defmodule TwebWeb.Twelastic do
 
     end)
   end
-
-  def printTweets do
-    TwebWeb.Twelastic.tweets |>
-    Stream.map(&IO.inspect/1) |>
-    Enum.to_list
-  end
-
-  def main do
-    #Elastix.start()
-    #IndexR.indexTweets
-    TwebWeb.Twelastic.printTweets
-  end
 end
 
 defmodule TwebWeb.IndexR do
