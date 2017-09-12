@@ -7,10 +7,9 @@ defmodule TwebWeb.Twelastic do
     Twitter indexer
   """
   def send_tweet(tweet) do
-    payload = %{"tweet" => tweet}
     :erlang.garbage_collect()
     Process.sleep(2000)
-    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", payload)
+    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", %{"tweet" => tweet})
   end
 
   def broadcast_tweets() do
