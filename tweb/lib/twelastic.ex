@@ -7,7 +7,10 @@ defmodule TwebWeb.Twelastic do
     Twitter indexer
   """
   def send_tweet(tweet) do
-    TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", %{"tweet" => tweet})
+    case ExRated.check_rate("tweets", 1_800, 1) do
+      {:ok, _count} -> TwebWeb.Endpoint.broadcast("tweets:messages", "tweets", %{"tweet" => tweet})
+      {:error, _count} -> nil
+    end
   end
 
   def broadcast_tweets() do

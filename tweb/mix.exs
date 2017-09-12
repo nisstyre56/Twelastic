@@ -20,7 +20,7 @@ defmodule Tweb.Mixfile do
   def application do
     [
       mod: {Tweb.Application, []},
-      extra_applications: [:logger, :runtime_tools, :extwitter, :elastix, :oauther, :poison]
+      extra_applications: [:logger, :runtime_tools, :extwitter, :elastix, :oauther, :poison, :ex_rated]
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule Tweb.Mixfile do
       {:extwitter, "~> 0.8.6"},
       {:elastix, "~> 0.4.0"},
       {:distillery, "~> 1.4", runtime: false},
-      {:oauther, "~> 1.1"}
+      {:oauther, "~> 1.1"},
+      {:ex_rated, "~> 1.2"}
     ]
   end
 

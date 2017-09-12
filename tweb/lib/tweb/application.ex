@@ -24,6 +24,7 @@ defmodule Tweb.Application do
 
     # start broadcasting tweets to the tweets:messages topic
     Task.async(TwebWeb.Twelastic.broadcast_tweets)
+    ExRated.start_link([])
   end
 
   # Tell Phoenix to update the endpoint configuration

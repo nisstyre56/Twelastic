@@ -44,7 +44,7 @@ class Tweets extends React.Component {
                                   this.state.tweets))
         }
       )
-    }, 2500))
+    }, 100))
 
     this.pause = () => {
       this.setState({
