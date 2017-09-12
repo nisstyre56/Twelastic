@@ -13,7 +13,7 @@
 
   <body>
     <h2 class="title">Live Tweets of Hurricane Irma</h2>
-    <h3>By <a href="https://twitter.com/weskerfoot">@weskerfoot</a></h3>
+    <h3 class="title">By <a href="https://twitter.com/weskerfoot">@weskerfoot</a></h3>
     <div id="root"></div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
